@@ -1,0 +1,13 @@
+<RCC>
+  <qresource prefix="resources">
+    <file>resources/always_on_top.png</file>
+    <file>resources/check.png</file>
+    <file>resources/check_activating.png</file>
+    <file>resources/icon.ico</file>
+    <file>resources/loaded.gif</file>
+    <file>resources/loading.gif</file>
+    <file>resources/press.png</file>
+    <file>resources/press_activating.png</file>
+    <file>resources/uncheck.png</file>
+  </qresource>
+</RCC>
