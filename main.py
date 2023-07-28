@@ -338,34 +338,25 @@ class SplashScreen(QMainWindow):
 			process = psutil.Process(self.roblox_pid)
 			if process.name() == "RobloxPlayerBeta.exe":
 				return
-			
-		self.check_if_roblox_is_closed_.stop()
+		
 		self.loading_text.setText("Waiting for <strong>ROBLOX</strong> to open")
 		self.setWindowTitle("Anti-AFK - Waiting for ROBLOX to open.")
-		self.anti_afk.setChecked = False
+
+		self.loading_icon = QMovie(resource_path("./resources/loading.gif"))
+		self.loading.setMovie(self.loading_icon)
+		self.loading_icon.start()
+
+		self.always_on_top.setGeometry(QRect(305, 15, 25, 25))
+		self.loading.setGeometry(QRect(170, 210, 41, 41))
+		self.title_frame.setGeometry(QRect(0, 80, 381, 91))
+		self.loading_frame.setGeometry(QRect(0, 180, 381, 81))
+		self.main_frame.setGeometry(QRect(-320, 110, 321, 111))
 
 		self.frame.setStyleSheet("""QFrame {
 			   							background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.499955, fy:0.5, stop:0 rgba(88, 93, 141, 255), stop:1 rgba(56, 58, 89, 255));
 										color: rgb(255, 255, 255);
 			   							border-radius: 10px;
 			   						}""")
-		
-		self.always_on_top.setGeometry(QRect(305, 15, 25, 25))
-
-		self.loading.setGeometry(QRect(170, 210, 41, 41))
-		self.title_frame.setGeometry(QRect(0, 80, 381, 91))
-		self.loading_frame.setGeometry(QRect(0, 180, 381, 81))
-		self.main_frame.setGeometry(QRect(-320, 110, 321, 111))
-
-		self.loading_icon = QMovie(resource_path("./resources/loading.gif"))
-		self.loading.setMovie(self.loading_icon)
-		self.loading_icon.start()
-
-		self.anti_afk.setStyleSheet("""QCheckBox::indicator {
-										width: 30px;
-										height: 30px;
-										image: url(":/resources/resources/uncheck.png")
-									}""")
 	
 		self.updatingText = QtCore.QTimer(self)
 		self.updatingText.timeout.connect(self.update_loading)
@@ -378,6 +369,15 @@ class SplashScreen(QMainWindow):
 		self.check_for_roblox_.start(3000)
 
 		self.roblox_pid = 0
+
+		self.anti_afk.setChecked = False
+		self.anti_afk.setStyleSheet("""QCheckBox::indicator {
+										width: 30px;
+										height: 30px;
+										image: url(":/resources/resources/uncheck.png")
+									}""")
+		
+		self.check_if_roblox_is_closed_.stop()
 
 # launch app
 if __name__ == "__main__":
