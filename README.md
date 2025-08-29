@@ -1,9 +1,7 @@
 
 # Anti AFK For Roblox
 
-This is a Traditional **Tool** for Roblox that impossible to be detected by their system because<br>
-this tool only <ins>implements and manipulate your keyboard</ins> while you're away from your PC.
-<br><br>
+This is a **traditional tool** that Roblox Anti-AFK system cannot detect, as it only simulates and controls your keyboard to keep you in the server while you’re away from your keyboard.
 
 ## Demo
 
